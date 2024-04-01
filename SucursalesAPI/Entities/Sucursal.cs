@@ -8,7 +8,7 @@
         public string telefono { get; set; }
         public string email { get; set; }
         public string horarioAtencion { get; set; }
-        public string gerenteSucursal { get; set; }
+        public int gerenteSucursal { get; set; }
         public short tipoMoneda { get; set; }
         public DateOnly fechaCreacion { get; set; }
         public DateOnly fechaUltimaActualizacion { get; set; }
