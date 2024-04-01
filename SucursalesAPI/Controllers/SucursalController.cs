@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Azure.Core;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SucursalesAPI.Data;
 using SucursalesAPI.Entities;
+using SucursalesAPI.Models;
 
 namespace SucursalesAPI.Controllers
 {
@@ -44,10 +46,27 @@ namespace SucursalesAPI.Controllers
         [HttpPost]
         [Route("CrearSucursal")]
         [Authorize(Roles = "admin")]        
-        public async Task<ActionResult<Sucursal>> CrearSucursal(Sucursal sucursal)
+        public async Task<ActionResult<Sucursal>> CrearSucursal(SucursalModel sucursalModel)
         {
+            Sucursal sucursal = new Sucursal();
+            sucursal.nombre = sucursalModel.nombre;
+            sucursal.direccion = sucursalModel.direccion;
+            sucursal.telefono = sucursalModel.telefono;
+            sucursal.email = sucursalModel.email;
+            sucursal.horarioAtencion = sucursalModel.horarioAtencion;
+            sucursal.gerenteSucursal = sucursalModel.gerenteSucursal;
+            sucursal.tipoMoneda = sucursalModel.tipoMoneda;
+            sucursal.fechaCreacion = new DateOnly(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            sucursal.fechaUltimaActualizacion = new DateOnly(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+
+            if (_context.Sucursales.SingleOrDefault(u => u.nombre == sucursalModel.nombre) != null)
+            {
+                var error = new { Mensaje = "Ya existe una sucursal con el mismo nombre" };
+                return Conflict(error);
+            }
             _context.Sucursales.Add(sucursal);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();            
+            
             //TODO: Se debe agregar una tabla de auditoria que indique este evento
             return CreatedAtAction(nameof(CrearSucursal), new { id = sucursal.id }, sucursal);
         }
@@ -55,11 +74,37 @@ namespace SucursalesAPI.Controllers
         [HttpPut("{id}")]
         [Route("ActualizarSucursal/{id}")]
         [Authorize(Roles = "admin")]
-        public async Task<IActionResult> ActualizarSucursal(int id, Sucursal sucursal)
+        public async Task<IActionResult> ActualizarSucursal(int id, SucursalModel sucursalModel)
         {
-            if (id != sucursal.id)
+            var sucursal = await _context.Sucursales.FindAsync(id);
+
+            if (sucursal == null)
             {
-                return BadRequest();
+                return NotFound();
+            }
+            
+            if(sucursal.nombre == sucursalModel.nombre &
+            sucursal.direccion == sucursalModel.direccion &
+            sucursal.telefono == sucursalModel.telefono &
+            sucursal.email == sucursalModel.email &
+            sucursal.horarioAtencion == sucursalModel.horarioAtencion &
+            sucursal.gerenteSucursal == sucursalModel.gerenteSucursal &
+            sucursal.tipoMoneda == sucursalModel.tipoMoneda)
+            {
+                
+                var error = new { Mensaje = "No se ha realizado actualización. Los datos son iguales." };
+                return BadRequest(error);
+            }
+            else
+            {
+                sucursal.nombre = sucursalModel.nombre;
+                sucursal.direccion = sucursalModel.direccion;
+                sucursal.telefono = sucursalModel.telefono;
+                sucursal.email = sucursalModel.email;
+                sucursal.horarioAtencion = sucursalModel.horarioAtencion;
+                sucursal.gerenteSucursal = sucursalModel.gerenteSucursal;
+                sucursal.tipoMoneda = sucursalModel.tipoMoneda;
+                sucursal.fechaUltimaActualizacion = new DateOnly(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             }
 
             _context.Entry(sucursal).State = EntityState.Modified;
@@ -73,15 +118,15 @@ namespace SucursalesAPI.Controllers
             {
                 if (!SucursalExiste(id))
                 {
-                    return NotFound();
+                    return BadRequest();
                 }
                 else
                 {
                     throw;
                 }
             }
-
-            return NoContent();
+            var ok = new { Mensaje = "Sucursal Actualizada con éxito" };
+            return Ok(ok);
         }
         
         [HttpDelete("{id}")]
@@ -99,7 +144,8 @@ namespace SucursalesAPI.Controllers
             await _context.SaveChangesAsync();
             //TODO: Se debe agregar una tabla de auditoria que indique este evento
 
-            return NoContent();
+            var ok = new { Mensaje = "Registro id =" + id + " ha sido eliminado" };
+            return Ok(ok);
         }
 
         private bool SucursalExiste(int id)
