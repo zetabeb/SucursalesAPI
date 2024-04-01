@@ -1,6 +1,6 @@
 ﻿namespace SucursalesAPI.Models
 {
-    public class UsuarioModels
+    public class UsuarioModel
     {
         public string correo {  get; set; }
         public string clave { get; set; }

@@ -25,7 +25,7 @@ namespace SucursalesAPI.Controllers
 
         [HttpPost]
         [Route("Validar")]
-        public IActionResult Validar([FromBody] UsuarioModels request)
+        public IActionResult Validar([FromBody] UsuarioModel request)
         {
             var usuario = _context.Usuarios.SingleOrDefault(u => u.email == request.correo && u.clave == request.clave);
 
