@@ -116,14 +116,14 @@ namespace SucursalesAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                //if (!SucursalExiste(id))
-                //{
-                //    return BadRequest();
-                //}
-                //else
-                //{
-                //    throw;
-                //}
+                if (!SucursalExiste(id))
+                {
+                    return BadRequest();
+                }
+                else
+                {
+                    throw;
+                }
             }
             var ok = new { Mensaje = "Sucursal Actualizada con éxito" };
             return Ok(ok);
