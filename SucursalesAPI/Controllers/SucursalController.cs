@@ -53,7 +53,7 @@ namespace SucursalesAPI.Controllers
         }
         
         [HttpPut("{id}")]
-        [Route("ActualizarSucursal")]
+        [Route("ActualizarSucursal/{id}")]
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> ActualizarSucursal(int id, Sucursal sucursal)
         {
@@ -84,7 +84,7 @@ namespace SucursalesAPI.Controllers
         }
         
         [HttpDelete("{id}")]
-        [Route("EliminarSucursal")]
+        [Route("EliminarSucursal/{id}")]
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> EliminarSucursal(int id)
         {
