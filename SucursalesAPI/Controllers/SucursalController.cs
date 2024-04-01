@@ -20,9 +20,9 @@ namespace SucursalesAPI.Controllers
         {
             _context = context;
         }
-        
+
         [HttpGet]
-        [Route("ObtenerSucursales")]        
+        [Route("ObtenerSucursales")]
         public async Task<ActionResult<List<Sucursal>>> ObtenerSucursales()
         {
             var sucursales = await _context.Sucursales.ToListAsync();
@@ -45,7 +45,7 @@ namespace SucursalesAPI.Controllers
 
         [HttpPost]
         [Route("CrearSucursal")]
-        [Authorize(Roles = "admin")]        
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<Sucursal>> CrearSucursal(SucursalModel sucursalModel)
         {
             Sucursal sucursal = new Sucursal();
@@ -65,13 +65,13 @@ namespace SucursalesAPI.Controllers
                 return Conflict(error);
             }
             _context.Sucursales.Add(sucursal);
-            await _context.SaveChangesAsync();            
-            
+            await _context.SaveChangesAsync();
+
             //TODO: Se debe agregar una tabla de auditoria que indique este evento
             return CreatedAtAction(nameof(CrearSucursal), new { id = sucursal.id }, sucursal);
         }
-        
-        [HttpPut("{id}")]
+
+        [HttpPut]
         [Route("ActualizarSucursal/{id}")]
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> ActualizarSucursal(int id, SucursalModel sucursalModel)
@@ -82,8 +82,8 @@ namespace SucursalesAPI.Controllers
             {
                 return NotFound();
             }
-            
-            if(sucursal.nombre == sucursalModel.nombre &
+
+            if (sucursal.nombre == sucursalModel.nombre &
             sucursal.direccion == sucursalModel.direccion &
             sucursal.telefono == sucursalModel.telefono &
             sucursal.email == sucursalModel.email &
@@ -91,7 +91,7 @@ namespace SucursalesAPI.Controllers
             sucursal.gerenteSucursal == sucursalModel.gerenteSucursal &
             sucursal.tipoMoneda == sucursalModel.tipoMoneda)
             {
-                
+
                 var error = new { Mensaje = "No se ha realizado actualización. Los datos son iguales." };
                 return BadRequest(error);
             }
@@ -116,20 +116,20 @@ namespace SucursalesAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SucursalExiste(id))
-                {
-                    return BadRequest();
-                }
-                else
-                {
-                    throw;
-                }
+                //if (!SucursalExiste(id))
+                //{
+                //    return BadRequest();
+                //}
+                //else
+                //{
+                //    throw;
+                //}
             }
             var ok = new { Mensaje = "Sucursal Actualizada con éxito" };
             return Ok(ok);
         }
-        
-        [HttpDelete("{id}")]
+
+        [HttpDelete]
         [Route("EliminarSucursal/{id}")]
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> EliminarSucursal(int id)
