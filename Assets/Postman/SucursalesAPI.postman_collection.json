@@ -44,7 +44,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqdWFuQGNvcnJlby5jb20iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MTE5NDg5MDQsImV4cCI6MTcxMTk1MjUwNCwiaWF0IjoxNzExOTQ4OTA0fQ.iYcZhtKksC4zv-tnvlUSMQlRNXyzDF8OkDAP1wFnWg8",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqdWFuQGNvcnJlby5jb20iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MTE5NzY4MDUsImV4cCI6MTcxMTk4MDQwNSwiaWF0IjoxNzExOTc2ODA1fQ.eUrZjTOkdVqQjnay9100VX5PvNnbn18M1iOV1pLI5qo",
 							"type": "string"
 						}
 					]
@@ -53,7 +53,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"Sucursal A\",\r\n    \"direccion\": \"Calle 123\",\r\n    \"telefono\": \"123456789\",\r\n    \"email\": \"sucursalA@example.com\",\r\n    \"horarioAtencion\": \"9:00 - 18:00\",\r\n    \"gerenteSucursal\": \"Juan Pérez\",\r\n    \"tipoMoneda\": \"USD\",\r\n    \"fechaCreacion\": \"2024-03-31\",\r\n    \"fechaUltimaActualizacion\": \"2024-03-31\"\r\n}\r\n",
+					"raw": "{\r\n    \"nombre\": \"Sucursal A\",\r\n    \"direccion\": \"Calle 123\",\r\n    \"telefono\": \"123456789\",\r\n    \"email\": \"sucursalA@example.com\",\r\n    \"horarioAtencion\": \"9:00 - 18:00\",\r\n    \"gerenteSucursal\": \"Juan Pérez\",\r\n    \"tipoMoneda\": \"USD\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -84,7 +84,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqdWFuQGNvcnJlby5jb20iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MTE5NDg5MDQsImV4cCI6MTcxMTk1MjUwNCwiaWF0IjoxNzExOTQ4OTA0fQ.iYcZhtKksC4zv-tnvlUSMQlRNXyzDF8OkDAP1wFnWg8",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqdWFuQGNvcnJlby5jb20iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MTE5NzY4MDUsImV4cCI6MTcxMTk4MDQwNSwiaWF0IjoxNzExOTc2ODA1fQ.eUrZjTOkdVqQjnay9100VX5PvNnbn18M1iOV1pLI5qo",
 							"type": "string"
 						}
 					]
@@ -146,7 +146,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqdWFuQGNvcnJlby5jb20iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MTE5NDg5MDQsImV4cCI6MTcxMTk1MjUwNCwiaWF0IjoxNzExOTQ4OTA0fQ.iYcZhtKksC4zv-tnvlUSMQlRNXyzDF8OkDAP1wFnWg8",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqdWFuQGNvcnJlby5jb20iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MTE5NzY4MDUsImV4cCI6MTcxMTk4MDQwNSwiaWF0IjoxNzExOTc2ODA1fQ.eUrZjTOkdVqQjnay9100VX5PvNnbn18M1iOV1pLI5qo",
 							"type": "string"
 						}
 					]
@@ -155,7 +155,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 5,\r\n    \"nombre\": \"Sucursal Actualizada\",\r\n    \"direccion\": \"Calle 456\",\r\n    \"telefono\": \"987654321\",\r\n    \"email\": \"sucursalActualizada@example.com\",\r\n    \"horarioAtencion\": \"8:00 - 17:00\",\r\n    \"gerenteSucursal\": \"Ana López\",\r\n    \"tipoMoneda\": \"MXN\",\r\n    \"fechaCreacion\": \"2024-03-31\",\r\n    \"fechaUltimaActualizacion\": \"2024-03-31\"\r\n}\r\n",
+					"raw": "{\r\n    \"nombre\": \"Sucursal Actualizada\",\r\n    \"direccion\": \"Calle 456\",\r\n    \"telefono\": \"987654321\",\r\n    \"email\": \"sucursalActualizada@example.com\",\r\n    \"horarioAtencion\": \"8:00 - 17:00\",\r\n    \"gerenteSucursal\": \"Ana López\",\r\n    \"tipoMoneda\": \"MXN\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -163,7 +163,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5151/api/Sucursal/ActualizarSucursal/5",
+					"raw": "http://localhost:5151/api/Sucursal/ActualizarSucursal/6",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -173,21 +173,21 @@
 						"api",
 						"Sucursal",
 						"ActualizarSucursal",
-						"5"
+						"6"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "EliminarSucursal",
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqdWFuQGNvcnJlby5jb20iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MTE5NDg5MDQsImV4cCI6MTcxMTk1MjUwNCwiaWF0IjoxNzExOTQ4OTA0fQ.iYcZhtKksC4zv-tnvlUSMQlRNXyzDF8OkDAP1wFnWg8",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqdWFuQGNvcnJlby5jb20iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MTE5NzY4MDUsImV4cCI6MTcxMTk4MDQwNSwiaWF0IjoxNzExOTc2ODA1fQ.eUrZjTOkdVqQjnay9100VX5PvNnbn18M1iOV1pLI5qo",
 							"type": "string"
 						}
 					]
@@ -195,7 +195,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5151/api/Sucursal/EliminarSucursal/5",
+					"raw": "http://localhost:5151/api/Sucursal/EliminarSucursal/7",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -205,7 +205,7 @@
 						"api",
 						"Sucursal",
 						"EliminarSucursal",
-						"5"
+						"7"
 					]
 				}
 			},
