@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "4ac4edd1-6e67-4323-b995-3153e78c9982",
+		"name": "SucursalesAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14766956"
+	},
+	"item": [
+		{
+			"name": "Validar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"correo\":\"juan@correo.com\",\r\n    \"clave\":\"clavecifradaSHA6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5151/api/Autenticacion/Validar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5151",
+					"path": [
+						"api",
+						"Autenticacion",
+						"Validar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearSucursal",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqdWFuQGNvcnJlby5jb20iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MTE5NDg5MDQsImV4cCI6MTcxMTk1MjUwNCwiaWF0IjoxNzExOTQ4OTA0fQ.iYcZhtKksC4zv-tnvlUSMQlRNXyzDF8OkDAP1wFnWg8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Sucursal A\",\r\n    \"direccion\": \"Calle 123\",\r\n    \"telefono\": \"123456789\",\r\n    \"email\": \"sucursalA@example.com\",\r\n    \"horarioAtencion\": \"9:00 - 18:00\",\r\n    \"gerenteSucursal\": \"Juan Pérez\",\r\n    \"tipoMoneda\": \"USD\",\r\n    \"fechaCreacion\": \"2024-03-31\",\r\n    \"fechaUltimaActualizacion\": \"2024-03-31\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5151/api/Sucursal/CrearSucursal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5151",
+					"path": [
+						"api",
+						"Sucursal",
+						"CrearSucursal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerSucursales",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqdWFuQGNvcnJlby5jb20iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MTE5NDg5MDQsImV4cCI6MTcxMTk1MjUwNCwiaWF0IjoxNzExOTQ4OTA0fQ.iYcZhtKksC4zv-tnvlUSMQlRNXyzDF8OkDAP1wFnWg8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5151/api/Sucursal/ObtenerSucursales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5151",
+					"path": [
+						"api",
+						"Sucursal",
+						"ObtenerSucursales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerSucursal",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJtYW51ZWxAY29ycmVvLmNvbSIsInJvbGUiOiJ1c2VyIiwibmJmIjoxNzExOTQ1OTY3LCJleHAiOjE3MTE5NDk1NjcsImlhdCI6MTcxMTk0NTk2N30.ZBOSeoquLgXzAXf9xgUFwqP05RuwR6lswVMcZLoz-_M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5151/api/Sucursal/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5151",
+					"path": [
+						"api",
+						"Sucursal",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActualizarSucursal",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqdWFuQGNvcnJlby5jb20iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MTE5NDg5MDQsImV4cCI6MTcxMTk1MjUwNCwiaWF0IjoxNzExOTQ4OTA0fQ.iYcZhtKksC4zv-tnvlUSMQlRNXyzDF8OkDAP1wFnWg8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 5,\r\n    \"nombre\": \"Sucursal Actualizada\",\r\n    \"direccion\": \"Calle 456\",\r\n    \"telefono\": \"987654321\",\r\n    \"email\": \"sucursalActualizada@example.com\",\r\n    \"horarioAtencion\": \"8:00 - 17:00\",\r\n    \"gerenteSucursal\": \"Ana López\",\r\n    \"tipoMoneda\": \"MXN\",\r\n    \"fechaCreacion\": \"2024-03-31\",\r\n    \"fechaUltimaActualizacion\": \"2024-03-31\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5151/api/Sucursal/ActualizarSucursal/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5151",
+					"path": [
+						"api",
+						"Sucursal",
+						"ActualizarSucursal",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqdWFuQGNvcnJlby5jb20iLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MTE5NDg5MDQsImV4cCI6MTcxMTk1MjUwNCwiaWF0IjoxNzExOTQ4OTA0fQ.iYcZhtKksC4zv-tnvlUSMQlRNXyzDF8OkDAP1wFnWg8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5151/api/Sucursal/EliminarSucursal/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5151",
+					"path": [
+						"api",
+						"Sucursal",
+						"EliminarSucursal",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
