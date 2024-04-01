@@ -83,12 +83,12 @@ namespace SucursalesAPI.Controllers
                 return NotFound();
             }
 
-            if (sucursal.nombre == sucursalModel.nombre &
-            sucursal.direccion == sucursalModel.direccion &
-            sucursal.telefono == sucursalModel.telefono &
-            sucursal.email == sucursalModel.email &
-            sucursal.horarioAtencion == sucursalModel.horarioAtencion &
-            sucursal.gerenteSucursal == sucursalModel.gerenteSucursal &
+            if (sucursal.nombre == sucursalModel.nombre &&
+            sucursal.direccion == sucursalModel.direccion &&
+            sucursal.telefono == sucursalModel.telefono &&
+            sucursal.email == sucursalModel.email &&
+            sucursal.horarioAtencion == sucursalModel.horarioAtencion &&
+            sucursal.gerenteSucursal == sucursalModel.gerenteSucursal &&
             sucursal.tipoMoneda == sucursalModel.tipoMoneda)
             {
 
@@ -144,7 +144,7 @@ namespace SucursalesAPI.Controllers
             await _context.SaveChangesAsync();
             //TODO: Se debe agregar una tabla de auditoria que indique este evento
 
-            var ok = new { Mensaje = "Registro id =" + id + " ha sido eliminado" };
+            var ok = new { Mensaje = "Registro id = " + id + " ha sido eliminado" };
             return Ok(ok);
         }
 
