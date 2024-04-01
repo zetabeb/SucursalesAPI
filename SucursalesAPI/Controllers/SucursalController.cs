@@ -48,7 +48,7 @@ namespace SucursalesAPI.Controllers
         {
             _context.Sucursales.Add(sucursal);
             await _context.SaveChangesAsync();
-
+            //TODO: Se debe agregar una tabla de auditoria que indique este evento
             return CreatedAtAction(nameof(CrearSucursal), new { id = sucursal.id }, sucursal);
         }
         
@@ -67,6 +67,7 @@ namespace SucursalesAPI.Controllers
             try
             {
                 await _context.SaveChangesAsync();
+                //TODO: Se debe agregar una tabla de auditoria que indique este evento
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -96,6 +97,7 @@ namespace SucursalesAPI.Controllers
 
             _context.Sucursales.Remove(sucursal);
             await _context.SaveChangesAsync();
+            //TODO: Se debe agregar una tabla de auditoria que indique este evento
 
             return NoContent();
         }
